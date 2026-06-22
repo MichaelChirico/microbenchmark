@@ -32,7 +32,7 @@ test.unit_arg_valid_values <- function()
     checkIdentical(unit(unit = u), attr(x, "unit"))
   }
 
-  test <- function() {}
+  test <- function() for (i in 1:10000) i
 
   values <- c("nanoseconds", "ns",
               "microseconds", "us",
@@ -58,7 +58,7 @@ test.unit_is_null_does_not_error <- function()
 test.simple_timing <- function()
 {
   set.seed(21)
-  out <- microbenchmark(rnorm(1e4))
+  out <- microbenchmark(rnorm(5e4))
   checkTrue(all(out$time > 0))
 }
 
